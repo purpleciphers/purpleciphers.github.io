@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Glossary of Cryptography | Purple Ciphers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="terms and definitions used in histoical cryptography. An explanation of the differences between codes and ciphers.">
+
+    <link rel="stylesheet" type="text/css" href="basestyle.css">
+
+    <link rel="icon" type="image/x-icon" href="icon.png"/>
+  </head>
+  <body>
+
+    <header>
+      <nav>
+        <h1>
+          <a href="index.html">
+            <img src="logo.png" alt="logo: a purple hex nut" class="logo">
+            <span>Purple Ciphers</span>
+          </a>
+        </h1>
+      </nav>
+    </header>
+
+    <main>
+      <h1>Glossary</h1>
+
+      <section>
+        <p>Please be aware this is by no means a comprehensive list of terms. It contains the major vocabular for the pre-computer cipers currently described on this site.</p>
+      </section>
+      <section>
+        <dl>
+          <dt>Cipher <dd>a system for disguising a message by replacing every letter with something else so that only the intended recipient can read it. Not to be confused with a <em>code</em>, more on the differences below.
+
+          <dt>Ciphertext <dd>the disguised message. Ciphertext should be unintelligible to all but the intended reader.
+
+          <dt>Code <dd>a system for disguising a message by replacing syllables, phrases, sentences, etc. so that only the intended recipient can read it. Not to be confused with a <em>cipher</em>, more on the differences below.
+
+          <dt>Code book <dd>a list of the codes for every phrase/word in a particular code. Essentially a dictionary, but instead of definitions, <em>plaintext</em> words are listed with their coresponding disguised phrase (<em>ciphertext</em>). Code books come in both one part (where plaintext and ciphertext are both in order so that they can be looked up quickly) and two part (where plaintext and ciphertext are randomly assigned so there is an <em>encoding</em> book where the plaintext is alphabetized and a <em>decoding</em> book where the ciphertext is alphabetized/in numerical order for easy look up).
+
+          <dt>Decrypt <dd>to make a hidden message readable wheather it be a <em>code</em> or <em>cipher</em>. It can be done by either the intended audience using an agreed upon <em>key</em> or by a talented intercepter who has broken the <em>encryption</em>.
+
+          <dt>Encrypt <dd>to make a hidden message unreadable wheather it be a <em>code</em> or <em>cipher</em>. <em>Encrypt</em> is the opposite of <em>decrypt</em>. <em>Enciphering</em> and <em>encoding</em> are specific instances of encrypting for cipher and codes repectively. Their opposites are <em>decipher</em> and <em>decode</em>.
+
+          <dt>Key <dd>the current arrangement of an algorithm/system.
+
+          <dt>Keyspace <dd>the number of ways an encryption system can be arranged (number of possible <em>keys</em>).
+
+          <dt>One Time Pad <dd>a randomly generated key to be used to <em>encipher</em> one message. So long as the key is fully random and <strong>only used once</strong> this system is unbrakable. However, a surprising number of people use the one time pad more than once opening the door to codebreakers.
+
+          <dt>Plaintext <dd>the message to be sent/recieved written as it is intended to be read.
+
+          <dt>ROT13 <dd>standing for "rotate 13 places" is a particular case of a <em>shift cipher</em> where the alphabet is rotated 13 letters down so that encryption and decryption is identical (as in A+13=N and N+13=A). ROTX where X is any integer is a valid cipher. <strong>ROT5</strong> and <strong>ROT47</strong> are the other two popular ROT ciphers because, like ROT13, they are reversible processes for base 10 numbers and ASCII, the values a computer uses to represent characters, respectively. As in 6+5=[1]1 and 11+5=[1]6, for ROT5 (only the final digit is part of the process). And T+47=% and %+47=T for ROT47.
+
+          <dt>Shift Cipher <dd>a specific type of cipher created by "rotating" or "shifting" the alphabet down a certain number of characters. The most famous example is the <strong>Caesar Cipher</strong> where A=X, B=Y, C=Z...
+
+        </dl>
+      </section>
+<!--
+      <section>
+        <h3>Codes vs. Ciphers</h3>
+        <p>Although used synonimously in common parlance, codes and ciphers are distinct systems.</p>
+      </section>-->
+    </main>
+    <footer>
+        <h2>info@purpleciphers.org</h2>
+    </footer>
+  </body>
+</html>

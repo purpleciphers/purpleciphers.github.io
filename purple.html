@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>PURPLE: simulator and the inner workings of Japanese Diplomatic Ciphers | Purple Ciphers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="simulator and full decryption of WWII cipher machine PURPLE, Angooki Taipu B, Type B Cipher Machine. This online deciphering and enciphering emulator is based on the Analogue build by cryptographers including William Friedman and Frank Rowlett working for the US SIS.">
+
+    <link rel="stylesheet" type="text/css" href="basestyle.css">
+    <link rel="stylesheet" type="text/css" href="purplestyle.css">
+
+    <link rel="icon" type="image/x-icon" href="icon.png"/>
+    <script type="text/javascript" src="purplecode.js" defer></script>
+    <script type="text/javascript" src="insertheader.js" defer></script>
+  </head>
+  <body>
+
+    <header>
+      <nav>
+        <h1>
+          <a href="index.html">
+            <img src="logo.png" alt="logo: a hex nut" class="logo">
+            <span>Purple Ciphers</span>
+          </a>
+        </h1>
+      </nav>
+    </header>
+
+    <main>
+      <h1>PURPLE</h1>
+
+      <section>
+      <h3>Introduction</h3>
+      <p>PURPLE, also called <em>Angooki Taipu B</em> or "Type B Cipher machine," was a electromechanical cipher machine used by the Japanese diplomatic service during World War II. PURPLE is famous for being the machine used to send the "14 Part Message," a Japanese transmission breaking diplomatic relations with the United States on December 7th, 1941, the morning of the unprovoked bombing of Pearl Harbor.</p>
+      <p>PURPLE's encryption method was eventually cracked by the US Army's <strong>Signal Intelligence Service</strong> (SIS) lead by <strong>William Friedman</strong>. Notable people working on PURPLE included: <strong>Frank Rowlett</strong>, head of the PURPLE team, <strong>Genevieve Grotjan</strong>, a cryptographer who first saw the pattern that led to solving PURPLE, and <strong>Leo Rosen</strong>, an engineer who designed the PURPLE Analog, a device that replicated PURPLE.</p>
+    </section>
+    <section>
+      <h3>Simulator</h3>
+        <p>As a quick test type "NEZEZVEMQD" into the “input” box using the default settings produced by loading the page. If you don't know what's happening, scroll down and read "Technical Details."</p>
+      <form autocomplete="off" list="autocompleteOff" data-gramm="false">
+      <div class="starts" id="startsall">
+
+      <div class="starts" id="start6stuff">
+        <label for="START6">6's start:</label>
+        <input type="number" id="START6" min="1" max="25" value="1"/>
+         > <div class="now" id="START6NOW">1</div>
+      </div>
+
+      <div class="starts" id="starts1-3">
+      <div class="starts" id="start1stuff">
+        <label for="START1">20's start 1:</label>
+        <input type="number" id="START1" min="1" max="25" value="1"/>
+         > <div class="now" id="START1NOW">1</div>
+      </div>
+
+      <div class="starts" id="start2stuff">
+        <label for="START2">20's start 2:</label>
+        <input type="number" id="START2" min="1" max="25" value="1"/>
+         > <div class="now" id="START2NOW">1</div>
+      </div>
+
+
+      <div class="starts" id="start3stuff">
+        <label for="START3">20's start 3:</label>
+        <input type="number" id="START3" min="1" max="25" value="1"/>
+         > <div class="now" id="START3NOW">1</div>
+      </div>
+      </div>
+      <div id = "SERROR"></div>
+      </div>
+
+      <div class="othersets">
+      <label for="MOTION">Motion:</label>
+      <select id="MOTION">
+          <option value="1">1 - 123</option>
+          <option value="2">2 - 132</option>
+          <option value="3">3 - 213</option>
+          <option value="4">4 - 231</option>
+          <option value="5">5 - 312</option>
+          <option value="6">6 - 321</option>
+      </select>
+
+      <label for="MODE">Decode?</label>
+      <input type="checkbox" id="MODE" />
+      </div>
+
+
+      <div class="plugs" id="divA-Z">
+        <div class="plugs" id="label">
+          <label for="PLUGS">Plugboard:</label>
+        </div>
+      <div class="plugs" id="divA-Y">
+      <table class="plugs sixes">
+        <tbody>
+          <tr>
+            <th>A</th><th>E</th><th>I</th>
+          </tr>
+          <tr>
+            <td><input type="text" id="A" class="PLUGS" value="A" title="A"/></td>
+            <td><input type="text" id="E" class="PLUGS" value="E" title="E"/></td>
+            <td><input type="text" id="I" class="PLUGS" value="I" title="E"/></td>
+          </tr>
+          <tr>
+            <th>O</th><th>U</th><th>Y</th>
+          </tr>
+          <tr>
+            <td><input type="text" id="O" class="PLUGS" value="O" title="O"/></td>
+            <td><input type="text" id="U" class="PLUGS" value="U" title="U"/></td>
+            <td><input type="text" id="Y" class="PLUGS" value="Y" title="Y"/></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="plugs" id="divB-Z">
+      <div class="plugs" id="divB-M">
+      <div class="plugs" id="divB-G">
+      <table class="plugs twenties">
+        <tbody>
+          <tr>
+            <th>B</th><th>C</th><th>D</th><th>F</th><th>G</th>
+          </tr>
+          <tr>
+            <td><input type="text" id="B" class="PLUGS" value="B" title="B"/></td>
+            <td><input type="text" id="C" class="PLUGS" value="C" title="C"/></td>
+            <td><input type="text" id="D" class="PLUGS" value="D" title="D"/></td>
+            <td><input type="text" id="F" class="PLUGS" value="F" title="F"/></td>
+            <td><input type="text" id="G" class="PLUGS" value="G" title="G"/></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="plugs" id="divH-M">
+      <table class="plugs twenties">
+        <tbody>
+          <tr>
+            <th>H</th><th>J</th><th>K</th><th>L</th><th>M</th>
+          </tr>
+          <tr>
+            <td><input type="text" id="H" class="PLUGS" value="H" title="H"/></td>
+            <td><input type="text" id="J" class="PLUGS" value="J" title="J"/></td>
+            <td><input type="text" id="K" class="PLUGS" value="K" title="K"/></td>
+            <td><input type="text" id="L" class="PLUGS" value="L" title="L"/></td>
+            <td><input type="text" id="M" class="PLUGS" value="M" title="M"/></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      </div>
+
+      <div class="plugs" id="divN-Z">
+      <div class="plugs" id="divN-S">
+      <table class="plugs twenties">
+        <tbody>
+          <tr>
+            <th>N</th><th>P</th><th>Q</th><th>R</th><th>S</th>
+          </tr>
+
+          <tr>
+            <td><input type="text" id="N" class="PLUGS" value="N" title="N"/></td>
+            <td><input type="text" id="P" class="PLUGS" value="P" title="P"/></td>
+            <td><input type="text" id="Q" class="PLUGS" value="Q" title="Q"/></td>
+            <td><input type="text" id="R" class="PLUGS" value="R" title="R"/></td>
+            <td><input type="text" id="S" class="PLUGS" value="S" title="S"/></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="plugs" id="divT-Z">
+      <table class="plugs twnties">
+        <tbody>
+          <tr>
+            <th>T</th><th>V</th><th>W</th><th>X</th><th>Z</th>
+          </tr>
+          <tr>
+            <td><input type="text" id="T" class="PLUGS" value="T" title="T"/></td>
+            <td><input type="text" id="V" class="PLUGS" value="V" title="V"/></td>
+            <td><input type="text" id="W" class="PLUGS" value="W" title="W"/></td>
+            <td><input type="text" id="X" class="PLUGS" value="X" title="X"/></td>
+            <td><input type="text" id="Z" class="PLUGS" value="Z" title="Z"/></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      </div>
+      </div>
+      </div>
+      <div class="plugs reset errors">
+        <button type="button" id="RESETPLUGS">Reset</button>
+        <div id = "PERROR"></div>
+        <div id = "P2ERROR"></div>
+      </div>
+    </form>
+
+
+    <div id="text">
+    <div id="input">
+      <label for="TEXTIN">Input:</label>
+      <textarea id="TEXTIN" spellcheck="false" autocapitalize="off" data-gramm="false"></textarea>
+    </div>
+
+    <div id="output">
+      <label for="TEXTOUT">Output:</label>
+      <div id = "TEXTOUT"></div>
+    </div>
+  </div>
+
+
+    <div id = "SETS"></div>
+    </section>
+    <section>
+      <h3>Technical Details</h3>
+      <p class="diagram">The exact details of how the Japanese machine worked mechanically are largely unknown as a whole one was never recovered, so here I describe the operation of the <strong>US PURPLE Analog</strong>. The course of a letter through PURPLE began at the input typewriter. From there, a letter entered the plugboard. The plugboard consisted of two rows of alphabets: an input and an output. This meant that the A input could come out at B while a B outputted H (as the plugboards of PURPLE and Enigma are commonly compared, please note that they are not the same. Enigma had one alphabet so if A was plugged into B that same wire was also connecting B into A). <img src="steppingswitch.PNG" class="diagram switch" alt="diagram of a stepping switch, uniselector, uniselector switch, stepping relay"/>The outputs of the PURPLE plugboard were split into two groups: the twenties (consonants) and the sixes (vowels, including y), that were then enciphered differently. The input in the sixes would go to a <em>stepping switch</em>, a sketch of one is shown on the right. This stepping switch, also called a uniselector, uniselector switch, or stepping relay, consists of 6 layers with 25 inputs each. The six layers represented the six possible inputs and the 25 inputs per layer all gave different outputs so that the encryption seemed random. The input would be sent to the appropriate layer while the selector part of the switch would line up with a column across one of the 25 inputs, meaning that the input spot would be the same on every level. From the sixes switch a letter would travel to the output plugboard (which was plugged exactly opposite the input plugboard, even though it was theoretically possible to plug it differently and would have increased security). At the output plugboard the value from the sixes would be converted into some letter (a vowel or consonant, however because the plugboard were identical it would always be one of the sixes as in letters plugged into the vowels) and then printed by the output type writer.</p>
+
+      <p class="diagram"><img src="pathpurple.PNG" alt="diagram of the path of a letter through PURPLE, Angooki Tapui B, Type B Cipher Machine" class="diagram path"/>The course of a letter plugged into the 20's is very similar to that of one of the sixes. It went through the input plugboard and then to a stepping switch much like the sixes, however this one was 20 layers tall (with the same 25 contact spots corresponding to 25 outputs). From there it would travel to another 20 layers by 25 inputs switch and then finally a third before exiting through the output type writing and being printed. A diagram of this motion is shown at left.</p>
+      <p class="diagram">The motion of a single letter through the machine also affected that of the next. The stepping switches were set to a particular input (across every layer) to start and then "stepped" in tandem according to a set of rules. The rules operated by assigning each of the 20's switches as fast, medium, or slow, as referring to how often they stepped. This is the <em>motion indicator</em>. For example, in indicator 2 20's switch 1 is fast, 20's switch 3 is medium, and 20's switch 2 is slow. The indicator was used to determine what switches stepped when.</p>
+      <ul>
+        <li>The sixes step every time a letter is pressed</li>
+        <li>The medium switch steps if the sixes switch is at 25</li>
+        <li>The slow switch steps if the sixes is at 24 and the medium switch at 25</li>
+        <li>The fast switch steps every time no other twenties switches stepped. </li>
+      </ul>
+      <p>Because of the turnover in the switches it takes 15625 letters (approximately 8 pages) to return to the same positions.</p>
+      <p>To decode a PURPLE message the process is completely reversed with the letter starting at the output typewriter and then moving through the reverse plugboard followed by the sixes switch or the third then second then first twenties switches and then finally going through the input plugboard to be printed by the input typewriter.</p>
+      <p>Here's the full path of the message "CIPHERSROCK" enciphered with the switches at 14, 24 19 23 using motion 3(213) and plugboard BEKYTF HQWRISDAPULMNOZXCVGJ </p>
+      <table class="example">
+        <thead>
+          <tr>
+            <th>Input</th>
+            <th>Plugs</th>
+            <th>S6</th>
+            <th>S1</th>
+            <th>S2</th>
+            <th>S3</th>
+            <th>Plugs</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>C</td><td>V</td><td>-</td>
+            <td>P</td><td>X</td><td>D</td><td>W</td>
+          </tr>
+          <tr>
+            <td>I</td><td>G</td><td>-</td>
+            <td>B</td><td>D</td><td>X</td><td>G</td>
+          </tr>
+          <tr>
+            <td>P</td><td>L</td><td>-</td>
+            <td>H</td><td>D</td><td>X</td><td>G</td>
+          </tr>
+          <tr>
+            <td>H</td><td>B</td><td>-</td>
+            <td>D</td><td>Q</td><td>S</td><td>Z</td>
+          </tr>
+          <tr>
+            <td>E</td><td>E</td><td>A</td>
+            <td>-</td><td>-</td><td>-</td><td>B</td>
+          </tr>
+          <tr>
+            <td>R</td><td>F</td><td>-</td><td>Q</td>
+            <td>C</td><td>T</td><td>X</td>
+          </tr>
+          <tr>
+            <td>S</td><td>H</td><td>-</td>
+            <td>L</td><td>T</td><td>F</td><td>R</td>
+          </tr>
+          <tr>
+            <td>R</td><td>F</td><td>-</td>
+            <td>Q</td><td>T</td><td>F</td><td>R</td>
+          </tr>
+          <tr>
+            <td>O</td><td>R</td><td>N</td><td>-</td>
+            <td>P</td><td>V</td><td>C</td>
+          </tr>
+          <tr>
+            <td>C</td><td>V</td><td>-</td><td>P</td>
+            <td>J</td><td>Q</td><td>N</td>
+          </tr>
+          <tr>
+            <td>K</td><td>I</td><td>Y</td><td>-</td>
+            <td>-</td><td>-</td><td>F</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+    </section>
+
+    <section>
+        <h3>Messages</h3>
+        <p>Here's an exert from the 14 part message to decode using starts 13, 1 24 10, motion 4 and plugs NOKTYU-XEQLHBRMPDICJASVWGZF.</p>
+        <p>"YHFLO WDAKW HKKNX EBVPY HHGHE KXIOH QHUHW IKYJY HPPFE ALNNA KIBOO ZNFRL QCFLJ T TSSD DOIOC VTAZC KQTSH XTIJC NWXOK UFNQR TTAOI HWTATW VHOTG CGAKV ANKZA NMUIN YOYJF SR"</p>
+        <p> Also try deciphering the full <a href="http://cryptocellar.org/simula/purple/part1.html">first part of the fourteen part message</a> (the starts are then 9, 1 24 6).</p>
+    </section>
+    <section>
+      <h3>References</h3>
+      <p>Budiansky, Stephen. <em>Battle of Wits: the Complete Story of Codebreaking in World War II.</em> New York: Free Press, 2000.</p>
+
+      <p>Budiansky, Stephen. Code Warriors: NSA’s Codebreakers and the Secret Intelligence War Against the Soviet Union. New York: Alfred A. Knopf, 2016.</p>
+
+      <p>Fagone, Jason, <em>The Woman who Smashed Codes: a True Story of Love, Spies, and the Unlikely Heroin who Outwitted America’s Enemies.</em> New York: HarperCollins, 2017.</p>
+
+      <p>Hastings, Max, <em>The Secret War: Spies, Ciphers, and Guerrillas 1939-1945</em>. New York: HarperCollins, 2016.</p>
+
+      <p>Lee, Bruce. <em>Marching Orders: the Untold Story of World War II.</em> New York: Crown Publishers Inc., 1995.</p>
+
+      <p> Smith, Michael, <em>The Emperor’s Codes: the Breaking of Japan’s Secret Ciphers.</em> New York: Arcade Publishing, 2000.</p>
+
+      <p>Wes Freeman, Geoff Sullivan, Frode Weierud. <em>PURPLE Revealed: Simulation and Computer-aided Cryptanalysis of Angooki Taipu B</em>. <br><a href="http://cryptocellar.org/pubs/PurpleRevealed.pdf"> http://cryptocellar.org/pubs/PurpleRevealed.pdf</a></p>
+    </section>
+    </main>
+    <footer>
+        <h2>info@purpleciphers.org</h2>
+    </footer>
+  </body>
+</html>

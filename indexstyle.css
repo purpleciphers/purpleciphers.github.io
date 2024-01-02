@@ -1,0 +1,55 @@
+header {
+  z-index: 3;
+  height: auto;
+  margin: auto 0;
+  padding: 0;
+  float: none;
+}
+
+header nav {
+  float: none;
+  width: 100%;
+  padding: 0;
+  border: 0;
+}
+header nav div.head {
+  display: block;
+  width: 100%;
+}
+header nav div.head a {
+  color: #A5A2CF;
+  text-decoration: none;
+  display: table;
+  margin: 0 auto;
+  text-align: center;
+}
+header nav div.head a h4 {
+  font-style: italic;
+  display: table;
+}
+header nav div.head:hover a {
+  color: #EAE7F2;
+}
+header nav ul li:hover {
+  background-color: #453A63;
+}
+header nav ul {
+  display: table;
+  float: none;
+  margin: 0 auto;
+}
+main {
+  background-color: inherit;
+  border: none;
+  height: 100%;
+  width: 100%;
+  color: #8D8AB0;
+  flex: none;
+  float: none;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  overflow: hidden;
+  font-size: 5vmax;
+  text-align: justify;
+}

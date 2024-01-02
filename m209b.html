@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>M209-B Cipher Machine: simulator and videos of original WWII machine | Purple Ciphers</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="simulator and full discription of WWII cipher machine M209, CSP-1500, C-38, AM-1.">
+
+    <link rel="stylesheet" type="text/css" href="basestyle.css">
+    <link rel="stylesheet" type="text/css" href="m209bstyle.css">
+
+    <link rel="icon" type="image/x-icon" href="icon.png"/>
+    <script type="text/javascript" src="m209b.js" defer></script>
+  </head>
+  <body>
+
+    <header>
+        <nav>
+            <h1>
+            <a href="index.html">
+                <img src="logo.png" alt="logo: a hex nut" class="logo">
+                <span>Purple Ciphers</span>
+            </a>
+            </h1>
+        </nav>
+    </header>
+
+    <main>
+        <h1>M209-B</h1>
+
+        <section>
+            <h3>Introduction</h3>
+            <p>Converter M209-B, also known as <strong>CSP-1500</strong> by the US Navy and <strong>AM-1</strong> standing for "American Machine 1" by German analysists, was a fully machanical, portable cipher machine built by <strong> Boris Hagelin</strong>, who called it <strong>C-38</strong>.</p>
+        </section>
+        <section>
+            <h3>Simulator</h3>
+            <p>As a quick test type "TWPPMBEMJPX" into the “input” box using the default settings produced by loading the page (or press reset). If you don't know what's happening, scroll down and read "Technical Details."</p>
+            <form autocomplete="off" list="autocompleteOff" data-gramm="false">
+            
+
+                
+
+                <div class = "mode">
+                    <label for="MODE">Encipher?</label>
+                    <input type="checkbox" id="MODE" />
+                    <p>In encipher mode, the output is in groups of 5. <br>In decipher mode, all Zs are printed as spaces.</p>
+                </div>
+
+
+            <div class="starts label"><label for="startsall" class="starts">Wheel Starting Positions</label></div>
+            <div class="starts" id="startsall">
+                <div class="starts" id="divStARTS1-3">
+                    <div class="starts" id="start1stuff">
+                        <label for="START1">1 (A-Z)</label>
+                            <input type="text" id="START1" pattern="[A-z]{1}" value="A"/>
+                            > <div class="now" id="START1NOW">A</div>
+                    </div>
+                    <div class="starts" id="start2stuff">
+                        <label for="START2">2 (A-Y)</label>
+                            <input type="text" id="START2" pattern="[A-y]{1}" value="A"/>
+                            > <div class="now" id="START2NOW">A</div>
+                    </div>
+                    <div class="starts" id="start3stuff">
+                        <label for="START3">3 (A-W)</label>
+                            <input type="text" id="START3" pattern="[A-w]{1}" value="A"/>
+                            > <div class="now" id="START3NOW">A</div>
+                    </div>
+                </div>
+                <div class="starts" id="divStARTS4-6">
+                    <div class="starts" id="start4stuff">
+                        <label for="START4">4 (A-U)</label>
+                            <input type="text" id="START4" pattern="[A-u]{1}" value="A"/>
+                            > <div class="now" id="START4NOW">A</div>
+                    </div>
+                    <div class="starts" id="start5stuff">
+                        <label for="START5">5 (A-S)</label>
+                            <input type="text" id="START5" pattern="[A-s]{1}" value="A"/>
+                            > <div class="now" id="START5NOW">A</div>
+                    </div>
+                    <div class="starts" id="start6stuff">
+                        <label for="START6">6 (A-Q)</label>
+                        <input type="text" id="START6" pattern="[A-q]{1}" value="A"/>
+                        > <div class="now" id="START6NOW">A</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="lugspins">
+                <div class="pins">
+                    <table class="pins">
+                        <thead>
+                            <tr>
+                                <th>Pin: </th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>A</td>
+                                <td><input type="checkbox" id="1A"/></td>
+                                <td><input type="checkbox" id="2A"/></td>
+                                <td><input type="checkbox" id="3A"/></td>
+                                <td><input type="checkbox" id="4A"/></td>
+                                <td><input type="checkbox" id="5A"/></td>
+                                <td><input type="checkbox" id="6A"/></td>
+                            </tr>
+                            <tr>
+                                <td>B</td>
+                                <td><input type="checkbox" id="1B"/></td>
+                                <td><input type="checkbox" id="2B"/></td>
+                                <td><input type="checkbox" id="3B"/></td>
+                                <td><input type="checkbox" id="4B"/></td>
+                                <td><input type="checkbox" id="5B"/></td>
+                                <td><input type="checkbox" id="6B"/></td>
+                            </tr>
+                            <tr>
+                                <td>C</td>
+                                <td><input type="checkbox" id="1C"/></td>
+                                <td><input type="checkbox" id="2C"/></td>
+                                <td><input type="checkbox" id="3C"/></td>
+                                <td><input type="checkbox" id="4C"/></td>
+                                <td><input type="checkbox" id="5C"/></td>
+                                <td><input type="checkbox" id="6C"/></td>
+                            </tr>
+                            <tr>
+                                <td>D</td>
+                                <td><input type="checkbox" id="1D"/></td>
+                                <td><input type="checkbox" id="2D"/></td>
+                                <td><input type="checkbox" id="3D"/></td>
+                                <td><input type="checkbox" id="4D"/></td>
+                                <td><input type="checkbox" id="5D"/></td>
+                                <td><input type="checkbox" id="6D"/></td>
+                            </tr>
+                            <tr>
+                                <td>E</td>
+                                <td><input type="checkbox" id="1E"/></td>
+                                <td><input type="checkbox" id="2E"/></td>
+                                <td><input type="checkbox" id="3E"/></td>
+                                <td><input type="checkbox" id="4E"/></td>
+                                <td><input type="checkbox" id="5E"/></td>
+                                <td><input type="checkbox" id="6E"/></td>
+                            </tr>
+                            <tr>
+                                <td>F</td>
+                                <td><input type="checkbox" id="1F"/></td>
+                                <td><input type="checkbox" id="2F"/></td>
+                                <td><input type="checkbox" id="3F"/></td>
+                                <td><input type="checkbox" id="4F"/></td>
+                                <td><input type="checkbox" id="5F"/></td>
+                                <td><input type="checkbox" id="6F"/></td>
+                            </tr>
+                            <tr>
+                                <td>G</td>
+                                <td><input type="checkbox" id="1G"/></td>
+                                <td><input type="checkbox" id="2G"/></td>
+                                <td><input type="checkbox" id="3G"/></td>
+                                <td><input type="checkbox" id="4G"/></td>
+                                <td><input type="checkbox" id="5G"/></td>
+                                <td><input type="checkbox" id="6G"/></td>
+                            </tr>
+                            <tr>
+                                <td>H</td>
+                                <td><input type="checkbox" id="1H"/></td>
+                                <td><input type="checkbox" id="2H"/></td>
+                                <td><input type="checkbox" id="3H"/></td>
+                                <td><input type="checkbox" id="4H"/></td>
+                                <td><input type="checkbox" id="5H"/></td>
+                                <td><input type="checkbox" id="6H"/></td>
+                            </tr>
+                            <tr>
+                                <td>I</td>
+                                <td><input type="checkbox" id="1I"/></td>
+                                <td><input type="checkbox" id="2I"/></td>
+                                <td><input type="checkbox" id="3I"/></td>
+                                <td><input type="checkbox" id="4I"/></td>
+                                <td><input type="checkbox" id="5I"/></td>
+                                <td><input type="checkbox" id="6I"/></td>
+                            </tr>
+                            <tr>
+                                <td>J</td>
+                                <td><input type="checkbox" id="1J"/></td>
+                                <td><input type="checkbox" id="2J"/></td>
+                                <td><input type="checkbox" id="3J"/></td>
+                                <td><input type="checkbox" id="4J"/></td>
+                                <td><input type="checkbox" id="5J"/></td>
+                                <td><input type="checkbox" id="6J"/></td>
+                            </tr>
+                            <tr>
+                                <td>K</td>
+                                <td><input type="checkbox" id="1K"/></td>
+                                <td><input type="checkbox" id="2K"/></td>
+                                <td><input type="checkbox" id="3K"/></td>
+                                <td><input type="checkbox" id="4K"/></td>
+                                <td><input type="checkbox" id="5K"/></td>
+                                <td><input type="checkbox" id="6K"/></td>
+                            </tr>
+                            <tr>
+                                <td>L</td>
+                                <td><input type="checkbox" id="1L"/></td>
+                                <td><input type="checkbox" id="2L"/></td>
+                                <td><input type="checkbox" id="3L"/></td>
+                                <td><input type="checkbox" id="4L"/></td>
+                                <td><input type="checkbox" id="5L"/></td>
+                                <td><input type="checkbox" id="6L"/></td>
+                            </tr>
+                            <tr>
+                                <td>M</td>
+                                <td><input type="checkbox" id="1M"/></td>
+                                <td><input type="checkbox" id="2M"/></td>
+                                <td><input type="checkbox" id="3M"/></td>
+                                <td><input type="checkbox" id="4M"/></td>
+                                <td><input type="checkbox" id="5M"/></td>
+                                <td><input type="checkbox" id="6M"/></td>
+                            </tr>
+                            <tr>
+                                <td>N</td>
+                                <td><input type="checkbox" id="1N"/></td>
+                                <td><input type="checkbox" id="2N"/></td>
+                                <td><input type="checkbox" id="3N"/></td>
+                                <td><input type="checkbox" id="4N"/></td>
+                                <td><input type="checkbox" id="5N"/></td>
+                                <td><input type="checkbox" id="6N"/></td>
+                            </tr>
+                            <tr>
+                                <td>O</td>
+                                <td><input type="checkbox" id="1O"/></td>
+                                <td><input type="checkbox" id="2O"/></td>
+                                <td><input type="checkbox" id="3O"/></td>
+                                <td><input type="checkbox" id="4O"/></td>
+                                <td><input type="checkbox" id="5O"/></td>
+                                <td><input type="checkbox" id="6O"/></td>
+                            </tr>
+                            <tr>
+                                <td>P</td>
+                                <td><input type="checkbox" id="1P"/></td>
+                                <td><input type="checkbox" id="2P"/></td>
+                                <td><input type="checkbox" id="3P"/></td>
+                                <td><input type="checkbox" id="4P"/></td>
+                                <td><input type="checkbox" id="5P"/></td>
+                                <td><input type="checkbox" id="6P"/></td>
+                            </tr>
+                            <tr>
+                                <td>Q</td>
+                                <td><input type="checkbox" id="1Q"/></td>
+                                <td><input type="checkbox" id="2Q"/></td>
+                                <td><input type="checkbox" id="3Q"/></td>
+                                <td><input type="checkbox" id="4Q"/></td>
+                                <td><input type="checkbox" id="5Q"/></td>
+                                <td><input type="checkbox" id="6Q"/></td>
+                            </tr>
+                            <tr>
+                                <td>R</td>
+                                <td><input type="checkbox" id="1R"/></td>
+                                <td><input type="checkbox" id="2R"/></td>
+                                <td><input type="checkbox" id="3R"/></td>
+                                <td><input type="checkbox" id="4R"/></td>
+                                <td><input type="checkbox" id="5R"/></td>
+                            </tr>
+                            <tr>
+                                <td>S</td>
+                                <td><input type="checkbox" id="1S"/></td>
+                                <td><input type="checkbox" id="2S"/></td>
+                                <td><input type="checkbox" id="3S"/></td>
+                                <td><input type="checkbox" id="4S"/></td>
+                                <td><input type="checkbox" id="5S"/></td>
+                            </tr>
+                            <tr>
+                                <td>T</td>
+                                <td><input type="checkbox" id="1T"/></td>
+                                <td><input type="checkbox" id="2T"/></td>
+                                <td><input type="checkbox" id="3T"/></td>
+                                <td><input type="checkbox" id="4T"/></td>
+                            </tr>
+                            <tr>
+                                <td>U</td>
+                                <td><input type="checkbox" id="1U"/></td>
+                                <td><input type="checkbox" id="2U"/></td>
+                                <td><input type="checkbox" id="3U"/></td>
+                                <td><input type="checkbox" id="4U"/></td>
+                            </tr>
+                            <tr>
+                                <td>V</td>
+                                <td><input type="checkbox" id="1V"/></td>
+                                <td><input type="checkbox" id="2V"/></td>
+                                <td><input type="checkbox" id="3V"/></td>
+                            </tr>
+                            <tr>
+                                <td>W</td>
+                                <td><input type="checkbox" id="1W"/></td>
+                                <td><input type="checkbox" id="2W"/></td>
+                                <td><input type="checkbox" id="3W"/></td>
+                            </tr>
+                            <tr>
+                                <td>X</td>
+                                <td><input type="checkbox" id="1X"/></td>
+                                <td><input type="checkbox" id="2X"/></td>
+                                <td><input type="checkbox" id="3X"/></td>
+                            </tr>
+                            <tr>
+                                <td>Y</td>
+                                <td><input type="checkbox" id="1Y"/></td>
+                                <td><input type="checkbox" id="2Y"/></td>
+                            </tr>
+                            <tr>
+                                <td>Z</td>
+                                <td><input type="checkbox" id="1Z"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="lugs">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Lugs</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><input type="number" id="1-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="1-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><input type="number" id="2-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="2-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><input type="number" id="3-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="3-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><input type="number" id="4-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="4-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td><input type="number" id="5-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="5-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td><input type="number" id="6-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="6-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td><input type="number" id="7-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="7-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td><input type="number" id="8-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="8-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td><input type="number" id="9-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="9-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td><input type="number" id="10-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="10-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td><input type="number" id="11-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="11-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td><input type="number" id="12-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="12-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td><input type="number" id="13-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="13-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>14</td>
+                                <td><input type="number" id="14-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="14-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>15</td>
+                                <td><input type="number" id="15-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="15-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>16</td>
+                                <td><input type="number" id="16-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="16-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>17</td>
+                                <td><input type="number" id="17-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="17-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>18</td>
+                                <td><input type="number" id="18-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="18-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>19</td>
+                                <td><input type="number" id="19-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="19-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>20</td>
+                                <td><input type="number" id="20-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="20-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>21</td>
+                                <td><input type="number" id="21-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="21-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>22</td>
+                                <td><input type="number" id="22-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="22-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>23</td>
+                                <td><input type="number" id="23-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="23-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>24</td>
+                                <td><input type="number" id="24-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="24-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>25</td>
+                                <td><input type="number" id="25-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="25-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>26</td>
+                                <td><input type="number" id="26-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="26-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+                            <tr>
+                                <td>27</td>
+                                <td><input type="number" id="27-0" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                                <td><input type="number" id="27-1" class="lugs" value="0" type="number" min="0" max="6" title="0"/></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="reset">
+                <button type="button" id="RESET">Reset all settings to empty</button>
+            </div>
+        </form>
+            <div id="text">
+                <div id="input">
+                  <label for="TEXTIN">Input:</label>
+                  <textarea id="TEXTIN" spellcheck="false" autocapitalize="off" data-gramm="false" type="text" pattern="A-z"></textarea>
+                </div>
+            
+                <div id="output">
+                  <label for="TEXTOUT">Output:</label>
+                  <div id = "TEXTOUT"></div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3>Technical Details</h3>
+            <p>The converter operates as a pseudorandom number generator. For every letter enciphered it generates an offset between 0-27, corresponding to how many of the 27 bars are activated (hit).</p>
+            <p class="math"><em>output = 27 - plaintext letter + generated offset</em><br><br></p>
+            <div class="technical">
+            <img class="photo" src="m209b-labeled-inside.PNG" alt="labeled photo of the inside of the M209-B indicating lugs, pins, bars, and the character count"/>
+            <p class="photo">Each of the 6 wheels have pins (26, 25, 23, 21, 19, and 17 pins respectively), that can be in either effective (pushed over right) or inefective (left) mode. All wheels rotate foward once every 
+                time a letter is enciphered. During this motion, effective pins hit the lugs that are attached to the bars. Lugs in position 0 are ineffective and lugs in positions 1-6 hit the corresponding wheel's pins.
+                When pins hit lugs, they knock the bar the lug is attached to over. The number of bars knocked over is the offset. The bar drum turns foward during encipherment so that all 27 bars (and attached lugs) 
+                pass by the pins. Even if both lugs on a bar hit, it is still adds only one to the offset because the bar is either knocked over or not.</p>
+            </div>
+            <div class="technical">
+                <img class="photo" src="m209b-labeled-outside.PNG" alt="labeled photo of the outside of the M209-B with the output tape, wheel release button, print wheel, letter wheel, character count, wheel window, wheel know, and drive wheel labeled"/>
+                <img class="photo" src="m209b-labeled-outside-zoom.PNG" alt="labeled photo of the right side of the outside of the M209-B with the letter wheel, mode selector, and output tape labeled"/>
+                <p class="photo">To begin, the operator sets the internal settings (lugs and pins), closes the lid, chooses encipher (C) or decipher (D) mode, and lines up the wheels in the wheel window. If the machine has been in use, the character count will be greater than 0.
+                In this case the operator holds down the wheel release and turns the wheel knob to reset the machine. The wheels will then need to be realigned in the windows. The wheels can be moved in the window without 
+                using the wheel release or wheel knob, but this will not adjust the character count. To encipher (or decipher), the operator turns the letter wheel to the letter they want to encipher and then turns the drive wheel. This will rotate the wheels and 
+                internal bar drum so that offset is generated and applied to the print wheel which prints out the enciphered character. Because the print and letter wheel are connected this will also rotate the letter wheel. The drive wheel locks and cannot be turned
+                again until the letter wheel is moved to the next letter to encipher (if it is already on the next letter moving it away and back to the letter will unlock the drive wheel.) </p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <h2>info@purpleciphers.org</h2>
+    </footer>
+  </body>
+</html>

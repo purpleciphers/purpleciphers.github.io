@@ -1,0 +1,230 @@
+div {
+    display: table;
+    width: fit-content;
+    width: intrinsic;
+    width: -moz-max-content;
+    width: -moz-fit-content;
+    width: -webkit-max-content;
+    width: -webkit-fit-content;
+    width: -ms-fit-content;
+    width: -o-fit-content;
+    text-align: center;
+    align-items: center;
+  }
+  div table {
+    margin: 0 auto;
+    display: table;
+    flex: none;
+  }
+  table.example {
+    margin-left: 5px;
+    display: table;
+    margin: 0 auto;
+    text-align: center;
+  }
+  table.example td {
+    border-top: 1px solid #251A2E;
+    width: 40px;
+  }
+
+  div.technical {
+    text-align: left;
+  }
+
+  p.math {
+    text-align: center;
+  }
+
+  form {
+    margin-top: 30px;
+  }
+  input, #input textarea, #output div, div.starts div.now, button, input[type=checkbox]{
+    color: #251A2E;
+    font-size: 16px;
+    background-color: white;
+    border: solid 1px #251A2E;
+    outline: none;
+  }
+
+  #label {
+    display: block;
+    float: none;
+    margin: 0 auto;
+  }
+  
+  #input, #output {
+    width: 100%;
+  }
+  #input textarea {
+    width: 100%;
+    min-height: 200px;
+    height: 200px;
+    resize: none;
+    overflow-y: scroll;
+    padding: 3px;
+    margin-bottom: 10px;
+  }
+  #output div{
+    width: 100%;
+    min-height: 200px;
+    height: 200px;
+    background-color: white;
+    overflow-y: scroll;
+    padding: 3px;
+    text-align: left;
+    display: block;
+  }
+  #text {
+    width: 100%;
+    height: 450px;
+    display: table;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+
+  div label.starts {
+    margin: 10px auto;
+  }
+  
+  div.starts {
+    margin: 5px auto;
+    width: fit-content;
+    display: block;
+    text-align: center;
+  }
+
+  div.starts div.now {
+    text-align: center;
+    min-width: 30px;
+    width: 30px;
+    display: inline-block;
+  }
+
+  .starts input{
+    max-width: 35px;
+    text-align: center;
+    border: solid 2px #251A2E;
+  }
+  
+  
+
+  div.lugs input{
+    max-width: 50px;
+  }
+
+div.mode, div.reset {
+    margin: 20px auto;
+    width: fit-content;
+    display: block;
+    text-align: center;
+  }
+  
+  input:focus, textarea:focus, button:hover, input[type=checkbox]:checked, input[type=checkbox]:hover {
+    outline: 1px solid #9D9AC4;
+  }
+  select::selection{
+    background-color: #9D9AC4;
+  }
+
+  div.pins{
+    margin: 20px auto;
+    width: fit-content;
+    display: table;
+    text-align: center;
+  }
+  div.lugs{
+    margin: 20px auto;
+    width: fit-content;
+    display: table;
+    text-align: center;
+  }
+
+  #lugspins {
+    width: 100%;
+  }
+  
+    img.photo {
+    height: auto;
+    width: 100%;
+    display: block;
+    margin: 15px auto;
+    border: solid 2px #251A2E;
+  }
+
+  p.photo {
+    clear: both;
+    margin-top: 10px;
+  }
+
+
+
+  @media only screen and (min-width: 700px){
+    div.pins {
+        float: left;
+        margin-right: 60px;
+    }
+    div.lugs {
+        float: left;
+    }
+    #lugspins {
+        width: fit-content;
+        float: none;
+        display: table;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    #divStARTS1-3 {
+      float: left;
+      margin-right: 20px;
+    }
+    #divStARTS4-6 {
+      float: left;
+    }
+    #startsall {
+      float: none;
+      display: table;
+      margin: 0 auto;
+    }
+  }
+
+  
+@media only screen and (min-width: 900px){
+    div.pins {
+        margin-right: 90px;
+    }
+    #divStARTS1-3 {
+        margin-right: 100px;
+    }    
+
+    #input {
+        width: 49%;
+        float: left;
+      }
+      #output {
+        width: 49%;
+        float: right;
+      }
+      #text {
+        max-height: 220px;
+      }
+}
+
+@media only screen and (min-width: 1000px){
+  img.photo{
+    height: 350px;
+    width: auto;
+    float: left;
+    margin-right: 20px;
+    clear: right;
+  }
+}
+
+@media only screen and (min-width: 1300px){
+    p.photo {
+        clear: none;
+    }
+  }

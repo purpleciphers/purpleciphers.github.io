@@ -1,0 +1,226 @@
+div {
+  display: table;
+  width: fit-content;
+  width: intrinsic;
+  width: -moz-max-content;
+  width: -moz-fit-content;
+  width: -webkit-max-content;
+  width: -webkit-fit-content;
+  width: -ms-fit-content;
+  width: -o-fit-content;
+  text-align: center;
+  align-items: center;
+}
+div table {
+  margin: 0 auto;
+  display: table;
+  flex: none;
+}
+table.example {
+  margin-left: 5px;
+  display: table;
+  margin: 0 auto;
+  text-align: center;
+}
+table.example td {
+  border-top: 1px solid #251A2E;
+  width: 40px;
+}
+form {
+  margin-top: 30px;
+}
+input, #input textarea, #output div, #MOTION, option, div.starts div.now, button, input[type=checkbox]{
+  color: #251A2E;
+  font-size: 16px;
+  background-color: white;
+  border: solid 1px #251A2E;
+  outline: none;
+}
+div.plugs {
+  margin: 0 auto;
+  width: fit-content;
+  display: block;
+  text-align: center;
+}
+#label {
+  display: block;
+  float: none;
+  margin: 0 auto;
+}
+
+#input, #output {
+  width: 100%;
+}
+#input textarea {
+  width: 100%;
+  min-height: 200px;
+  height: 200px;
+  resize: none;
+  overflow-y: scroll;
+  padding: 3px;
+  margin-bottom: 10px;
+}
+#output div{
+  width: 100%;
+  min-height: 200px;
+  height: 200px;
+  background-color: white;
+  overflow-y: scroll;
+  padding: 3px;
+  text-align: left;
+  display: block;
+}
+#text {
+  width: 100%;
+  height: 450px;
+  display: table;
+}
+div.starts input{
+  max-width: 50px;
+}
+#SERROR, #PERROR, #P2ERROR {
+  color: red;
+  display: table;
+  margin: 3px auto;
+}
+label {
+  font-weight: bold;
+}
+div.starts {
+  margin: 5px auto;
+}
+div.starts div.now {
+  text-align: center;
+  min-width: 30px;
+  width: 30px;
+  display: inline-block;
+}
+.plugs th{
+  text-align: center;
+}
+.plugs td input{
+  max-width: 35px;
+  text-align: center;
+}
+.plugs td input.PLUGS{
+  border: solid 2px #251A2E;
+}
+#divA-Y {
+  margin-bottom: 10px;
+}
+
+
+div.othersets {
+  display: block;
+  float: none;
+  margin: 20px auto;
+}
+#MOTION {
+  margin-right: 15px;
+}
+div.starts {
+  display: block;
+  width: fit-content;
+}
+
+#start1stuff, #start2stuff, #start3stuff {
+  padding: 0 15px;
+}
+#start6stuff {
+  padding-left: 20px;
+}
+div.reset {
+  display: table;
+  margin: 10px auto 30px auto;
+  float: none;
+  clear: both;
+}
+
+input:focus, textarea:focus, button:hover, input[type=checkbox]:checked, input[type=checkbox]:hover {
+  outline: 1px solid #9D9AC4;
+}
+select::selection{
+  background-color: #9D9AC4;
+}
+@media only screen and (min-width: 600px) {
+  #divB-G, #divH-M {
+    float: left;
+    display: block;
+  }
+  #divN-S, #divT-Z {
+    float: left;
+    display: block;
+  }
+  #divB-M, #divN-Z {
+    float: none;
+    display: table;
+    margin: 0 auto;
+  }
+}
+
+@media only screen and (min-width: 900px){
+  #divB-Z {
+    float: left;
+  }
+  #divA-Y {
+    float: left;
+    margin-right: 20px;
+  }
+  #divA-Z {
+    float: none;
+    display: table;
+    margin: 0 auto;
+  }
+  #input {
+    width: 49%;
+    float: left;
+  }
+  #output {
+    width: 49%;
+    float: right;
+  }
+  #text {
+    max-height: 220px;
+  }
+  img.switch {
+    width: 200px;
+    height: 300px;
+    float: right;
+    clear: right;
+
+  }
+  img.path {
+    height: 300px;
+    float: left;
+    clear: left;
+  }
+
+}
+
+@media only screen and (min-width: 1100px) {
+  #start1stuff, #start2stuff, #start3stuff {
+    float: left;
+  }
+  #start6stuff {
+    float: none;
+  }
+  #starts1-3 {
+    float: none;
+    display: table;
+    margin: 0 auto;
+  }
+  div.othersets {
+    padding-top: 20px;
+  }
+
+}
+
+@media only screen and (min-width: 1350px) {
+  #starts1-3, #start6stuff{
+    float: left;
+  }
+  #startsall {
+    display: table;
+    float: none;
+  }
+}
